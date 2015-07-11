@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>J/ADORE - Javascript/Ajax Driven Online Roguelike Experiment</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="/angband/at.ico">
+    <link href="/angband/main.css" rel="stylesheet" type="text/css" />
+    <script src="/angband/inc/crockford_lib_full.js"></script>
+    <script src="/angband/inc/arathalion_lib_full.js"></script>
+    <script src="/angband/misc.js"></script>
+    <script src="/angband/edit/monsters.js"></script>
+    <script src="/angband/edit/terrain.js"></script>
+    <script src="/angband/edit/menus.js"></script>
+    <script src="/angband/dungeon.js"></script>
+    <script src="/angband/monster.js"></script>
+    <script src="/angband/player.js"></script>
+    <script src="/angband/display.js"></script>
+    <script src="/angband/actions.js"></script>
+    <script src="/angband/turn.js"></script>
+    <script src="/angband/key_events.js"></script>
+    <script src="/angband/game.js"></script>
+    <script src="/angband/test.js"></script>
+    <script src="/angband/interface.js"></script>
+</head>
+<body>
+
+<div id="mainGame" style="display:none;">
+<div id="stats">
+	<span id="playerRace"></span><br />
+	<span id="playerClass"></span><br />
+	Level:<span id="playerLevel">1</span><br />
+	HP:<span id="nowHP">0</span>/<span id="maxHP">0</span><br />
+	XP:<span id="nowXP">0</span><br />
+</div>
+
+<div id="dungeon">
+</div>
+
+
+<div id="monsterStates">Monster States
+</div>
+
+<div id="states">
+<br />
+	<span id="info">
+	g = generate level<br />
+	e = erode level<br />
+	m = generate monster<br />
+	Use arrow keys to move</span>
+	<br /><br />
+	Keydown/Keyup:<span id="keyDebug">0</span><br />
+	Shift:<span id="shift">false</span> - 
+	Ctrl: <span id="ctrl">false</span> - 
+	Alt:  <span id="alt">false</span><br /><br />
+	<span id="console" height="50px"></span><br />
+</div>
+<br />
+<br />
+</div>
+
+<div id="mainMenu">
+	<div>&nbsp;______&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;_<br />
+|__&nbsp; __|&nbsp;/&nbsp;__&nbsp;_&nbsp; __|&nbsp;|&nbsp;___&nbsp; _&nbsp; _&nbsp; ___<br />
+&nbsp; |&nbsp;|&nbsp; &nbsp;/&nbsp;/&nbsp;_`&nbsp;|/&nbsp;_`&nbsp;|/&nbsp;_&nbsp;\|&nbsp;`__|/&nbsp;@&nbsp;\<br />
+&nbsp;_|&nbsp;|&nbsp; / |&nbsp;(_|&nbsp;|&nbsp;(_|&nbsp;|&nbsp;(_)&nbsp;|&nbsp;/&nbsp; |&nbsp; &nbsp;/_<br />
+|___/&nbsp;/&nbsp; &nbsp;\__,_|\__,_|\___/|_|&nbsp; &nbsp;\___/<br />
+	</div>
+	<div id="intro"><br /><br />
+	Welcome to J/ADORE - Javascript/Ajax Driven Online Roguelike Experiment! Hopefully that's quite self explanatory. If you're new to Roguelikes, I recommend you check out <a href="http://en.wikipedia.org/wiki/Roguelike">The Wikipedia Article</a> for a basic explanation. J/ADORE is mostly inspired by the roguelike "<a href="http://en.wikipedia.org/wiki/Angband_(video_game)">Angband</a>" and <a href="http://angband.oook.cz/variants.php">variants</a>. At the moment, J/ADORE is in very early stages (pre-alpha?), and as such lack most features and is unplayable as a game. But, I think it's already an important proof-of-concept. Despite the name, it's currently lacking any Ajax, but the plan is to have some as a method of saving and uploading scores at some point.<br /><br /></div>
+	<div id="menuTitle"></div>
+	<div id="menuContent"></div>
+	<div id="menuDesc" style="float:left;min-height:100px;"></div>
+	<div id="menuKeys" style="clear:both">
+		<br /><br />
+		<span>Enter) Select</span>
+		<span style="visibility: hidden" id="backSpan"> - <a href="javascript:menu.goBack();">b) back </a></span><br /><br />
+	</div>
+</div>
+
+<div id="debug">
+</div>
+
+<script>
+//display.buildHTML(); //has to be called after the div "main" HTML code is
+
+//default generation stuff, just for demo purposes
+/* generateLevel();
+player.posX = 5;
+player.posY = 5;
+
+display.updateWholeScreen();
+display.updateStats(); */
+
+
+menu.generateMenu(0);
+//game.startNew();
+window.onresize = function(){menu.recentreMenu();}
+//$('mainMenu').style.display = 'none';
+
+</script>
+
+</body>
+</html>
